@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
+import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     // { name: 'Meeting', to: '/' },
@@ -15,11 +16,11 @@ function Land() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <>
-      <div className="isolate bg-black" >
-      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <div className="isolate bg-black  "   >
+      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" >
         <svg
           className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-          viewBox="0 0 1155 678"
+          viewBox="0 0 1155 678" 
         >
           <path
             fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
@@ -117,18 +118,22 @@ function Land() {
               Check out our management tips, tools, templates, and productivity hacks to start saving one day a week.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="#"
+                <Link
+                  to="/getStarted"
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   style={{marginBottom:"9%"}}
                 >
                   Get started
-                </a>
+                </Link>
                 
               </div>
             </div>
           </div>
-          {/* <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+          
+
+        </div>
+          
+        {/* <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
             <svg
               className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
               viewBox="0 0 1155 678"
@@ -153,9 +158,10 @@ function Land() {
               </defs>
             </svg>
           </div> */}
-        </div>
+        
       </main>
     </div>
+    
     </>
   )
 }
