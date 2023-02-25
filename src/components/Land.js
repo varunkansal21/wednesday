@@ -4,6 +4,8 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import wed from "./images/wednesday.png"
+import wedBlack from "./images/wednesdayBlack.png"
 
 const navigation = [
     // { name: 'Meeting', to: '/' },
@@ -43,11 +45,11 @@ function Land() {
         </svg>
       </div>
       <div className="px-6 pt-6 lg:px-8">
-        <nav className="flex items-center justify-between" aria-label="Global">
+        <nav className="flex items-center justify-between" aria-label="Global" style={{marginTop:"-2%"}}>
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only text-white"> Your Company</span>
-              <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+              <img className="" style={{height:"150px",width:"200px"}} src={wed} alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -69,10 +71,10 @@ function Land() {
         </nav>
         <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <Dialog.Panel focus="true" className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between" style={{marginTop:"-4%",marginLeft:"-8%"}}>
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Wednesday</span>
-                <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                <img className="h-8" src={wedBlack} style={{height:"150px",width:"200px"}} alt="" />
               </a>
               <button
                 type="button"
