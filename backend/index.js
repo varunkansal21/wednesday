@@ -5,6 +5,9 @@ var router = express.Router()
 const app = express();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const textflow=require("textflow.js")
+
+textflow.useKey("LGJgLBvixV3G3dYQrnXOBMFziaYKcWgsGzj3bsctlvmTwzOxKlpVNwhThooLzcN7");
 
 const JWT_SECRET = "bestreact";
 
@@ -96,10 +99,12 @@ app.post('/login',(req,res)=>{
       return;
     }
     const comparePassword = await bcrypt.compare(password,result[0].PASSWORD);
+    console.log("hello");
     if(!comparePassword){
       res.send(JSON.stringify({"status":false}));
       return;
     }
+   
     const authToken = jwt.sign(email, JWT_SECRET);
     res.send(JSON.stringify({"status":true,"authToken":authToken}));
   });
@@ -120,13 +125,29 @@ app.post('/findNumber',(req,res)=>{
     });
 });
 
+// // Verify OTP
+// app.post('/verify',async(req,res)=>{
+//   var mobile=req.body.mobile;
+//   var email=req.body.email;
+//   var code=req.body.code;
+//   var result=await textflow.verifyCode(mobile,code);
+//   if(!result.valid){
+//     res.send(JSON.stringify({"status":100}))
+//   }
+//   else{
+//     const authToken = jwt.sign(email, JWT_SECRET);
+//     res.send(JSON.stringify({"status": 200, "error": null, "response": results,"authToken":authToken}));
+//   }
+// })
+
 // Sign Up
 app.post('/signup',async (req,res)=>{
   let email=req.body.email;
+  let mobile=req.body.mobile;
   // let password=req.body.password;
   const salt =await bcrypt.genSalt(10);
   const password =await bcrypt.hash(req.body.password, salt);
-  let data={email,password};
+  let data={email,password,mobile};
   let sql="INSERT INTO USERS SET ?";
   let query = con.query(sql, data,(err, results) => {
     if(err){
@@ -136,7 +157,17 @@ app.post('/signup',async (req,res)=>{
     }
     const authToken = jwt.sign(email, JWT_SECRET);
     res.send(JSON.stringify({"status": 200, "error": null, "response": results,"authToken":authToken}));
+    return;
   });
+  // const phone=parseInt(mobile);
+  // var result1=await textflow.sendVerificationSMS(phone);
+  // if(result1.ok){
+   
+  //   res.send(JSON.stringify({"status":200}));
+  //   return;
+  // }
+  // res.send(JSON.stringify({"status":100}));
+   
 });
 
 

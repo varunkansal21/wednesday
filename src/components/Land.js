@@ -18,7 +18,7 @@ function Land() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <>
-      <div className="isolate bg-black  "   >
+      <div className="isolate bg-white"   >
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" >
         <svg
           className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
@@ -49,7 +49,7 @@ function Land() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only text-white"> Your Company</span>
-              <img className="" style={{height:"150px",width:"200px"}} src={wed} alt="" />
+              <img className="" style={{height:"150px",width:"200px",marginLeft:"-8%",marginTop:"-4%"}} src={wed} alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -63,7 +63,7 @@ function Land() {
             </button>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link to="/login"  className="text-sm font-semibold leading-6 text-white">
+            <Link to="/login"  className="text-sm font-semibold leading-6 text-black">
             
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -113,7 +113,7 @@ function Land() {
               </div>
             </div>
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-600 sm:text-6xl">
                 Boost your Productivity
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">

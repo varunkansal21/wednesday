@@ -3,11 +3,12 @@ import {LockClosedIcon} from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import wed from "./images/wednesdayBlack.png"
 function Signup() {
     let navigate = useNavigate();
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
+    const [mobile,setMobile]=useState("");
 
 
     const handleSignup= async(e)=>{
@@ -21,18 +22,39 @@ function Signup() {
             window.alert("Please enter your password of at least 5 words");
             return;
         }
+        if(document.getElementById("mobile").value.length!=10){
+          window.alert("Please enter your Mobile number correctly");
+          return;
+      }
+
 
         const response= await fetch("http://localhost:5000/signup",{
             method:"POST",
             headers:{
                 'Content-type':'application/json'
             },
-            body: JSON.stringify({email,password})
+            body: JSON.stringify({email,password,mobile})
         });
         const json= await response.json();
         if(json.status===200){
-          sessionStorage.setItem('token', json.authToken);
+          // const code=window.prompt("Enter OTP")
+          // const response1=await fetch("http://localhost:3000/verify",{
+          //   method:"POST",
+          //   headers:{
+          //     'Content-type':'application/json'
+          //   },
+          //   body: JSON.stringify({mobile,email,code})
+          // });
+          // const json1=await response1.json();
+          // if(json1.status===200){
+            sessionStorage.setItem('token', json.authToken);
             navigate('/home')
+          // }
+          // else{
+          //   window.alert("Please, Enter the correct OTP");
+          // }
+
+         
         }
 
         else{
@@ -49,8 +71,9 @@ function Signup() {
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
+              style={{height:"180px",width:"220px",marginBottom:"-5%"}}
               className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src={wed}
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
@@ -94,6 +117,21 @@ function Signup() {
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Password"
                   onChange={(e)=>setPassword(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Mobile Number
+                </label>
+                <input
+                  id="mobile"
+                  name="mobile"
+                  type="number"
+                  required
+                  className="relative block w-full appearance-none rounded-none  border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Mobile Number"
+                  onChange={(e)=>setMobile(e.target.value)}
+                  style={{marginTop:"10px",borderRadius:"5px"}}
                 />
               </div>
             </div>

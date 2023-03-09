@@ -3,7 +3,7 @@ import {LockClosedIcon} from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import wed from "./images/wednesdayBlack.png"
 
 function Login() {
   const [email,setEmail]=useState("");
@@ -48,7 +48,8 @@ function Login() {
           <div>
             <img
               className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src={wed}
+              style={{height:"180px",width:"220px",marginBottom:"-5%"}}
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
