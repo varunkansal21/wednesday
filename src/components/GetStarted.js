@@ -34,12 +34,12 @@ function GetStarted() {
   return (
     <>
       
-    <div className="relative isolate overflow-hidden bg-white py-16 sm:py-24 lg:py-32">
+    <div className="relative isolate overflow-hidden bg-black py-16 sm:py-24 lg:py-32">
     <div className=" py-24 sm:py-5">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Everything you need to know about Wednesday
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-400">
